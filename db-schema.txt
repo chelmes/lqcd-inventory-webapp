@@ -1,0 +1,26 @@
+Database Schema
+
+Here all the tables that are needed in the database are listed with their
+respective datatype.
+
+[dilution_schemes]
+id : int
+name : str
+
+[eigensystems]
+id : int
+ensemble_id : int
+path : str
+
+[ensembles]
+id : int
+mu_l : float
+
+[perambulators]
+id : int
+ensemble_id : int
+dilution_scheme_id : id
+random_seed : int
+mass_light : float
+mass_strange : float
+mass_charme : float
