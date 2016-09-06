@@ -24,3 +24,4 @@ random_seed : int
 mass_light : float
 mass_strange : float
 mass_charme : float
+path: string
