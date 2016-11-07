@@ -24,4 +24,16 @@
         </div>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Used by Perambulators</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include 'lqcd_inventory/macro_perambulator_table.html' with object_list=object.perambulators.all show_ensemble=False show_dilution=True show_actions=True only %}
+    </div>
+</div>
 {% endblock %}

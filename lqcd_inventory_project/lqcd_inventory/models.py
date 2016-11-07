@@ -21,7 +21,7 @@ class Ensemble(models.Model):
 class Eigensystem(models.Model):
     path = models.CharField(max_length=1000)
 
-    ensemble = models.ForeignKey(Ensemble, on_delete=models.CASCADE)
+    ensemble = models.ForeignKey(Ensemble, on_delete=models.CASCADE, related_name='eigensystem')
 
     def __str__(self):
         return '{} @ {}'.format(self.path, str(self.ensemble))
@@ -33,7 +33,7 @@ class Perambulator(models.Model):
     mass_strange = models.FloatField()
     mass_charm = models.FloatField()
 
-    ensemble = models.ForeignKey(Ensemble, on_delete=models.CASCADE)
+    ensemble = models.ForeignKey(Ensemble, on_delete=models.CASCADE, related_name='perambulators')
     dilution_scheme = models.ForeignKey(DilutionScheme, on_delete=models.CASCADE, related_name='perambulators')
 
     def __str__(self):
