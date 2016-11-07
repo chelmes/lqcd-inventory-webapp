@@ -8,19 +8,21 @@ def index(request):
     return render(request, 'lqcd_inventory/index.html')
 
 
-def parambulators_index(request):
-    parambulator_list = models.Perambulator.objects
+def perambulators_index(request):
+    perambulator_list = models.Perambulator.objects.order_by('random_seed')
 
     return render(
         request,
-        'lqcd_inventory/parambulators_index.html',
-        perambulator_list=perambulator_list,
+        'lqcd_inventory/perambulators_index.html',
+        {
+            'perambulator_list': perambulator_list,
+        },
     )
 
 
-def parambulators_create(request):
+def perambulators_create(request):
     return render(request, 'lqcd_inventory/404.html')
 
 
-def parambulators_view(request, parambulator_id):
+def perambulators_view(request, perambulator_id):
     return render(request, 'lqcd_inventory/404.html')
