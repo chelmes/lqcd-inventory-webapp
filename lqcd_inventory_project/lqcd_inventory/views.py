@@ -1,8 +1,9 @@
 from django.forms import ModelForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, render_to_response
-from django.views import generic
 from django.template import RequestContext
+from django.urls import reverse
+from django.views import generic
 
 from . import models
 
@@ -91,7 +92,7 @@ def edit_generator(Model, Form, name):
             form = Form(request.POST, instance=e)
             if form.is_valid():
                 form.save() 
-                return HttpResponseRedirect('view')
+                return HttpResponseRedirect(reverse('{}_view'.format(name), args=[e.id]))
         else:
             if pk is None:
                 form = Form()
