@@ -9,14 +9,20 @@ urlpatterns = [
     url(r'^ensemble/(?P<pk>\d+)/view$', views.EnsembleView.as_view(), name='ensemble_view'),
     url(r'^perambulator/(?P<pk>\d+)/view$', views.PerambulatorView.as_view(), name='perambulator_view'),
 
+    url(r'^dilution/(?P<pk>\d+)/edit$', views.dilution_edit, name='dilution_edit'),
+    url(r'^eigensystem/(?P<pk>\d+)/edit$', views.eigensystem_edit, name='eigensystem_edit'),
+    url(r'^ensemble/(?P<pk>\d+)/edit$', views.ensemble_edit, name='ensemble_edit'),
+    url(r'^perambulator/(?P<pk>\d+)/edit$', views.perambulator_edit, name='perambulator_edit'),
+
+    url(r'^dilution/create$', views.dilution_edit, name='dilution_create'),
+    url(r'^eigensystem/create$', views.eigensystem_edit, name='eigensystem_create'),
+    url(r'^ensemble/create$', views.ensemble_edit, name='ensemble_create'),
+    url(r'^perambulator/create$', views.perambulator_edit, name='perambulator_create'),
+
     url(r'^dilution/$', views.DilutionList.as_view(), name='dilution_list'),
     url(r'^eigensystem/$', views.EigensystemList.as_view(), name='eigensystem_list'),
     url(r'^ensemble/$', views.EnsembleList.as_view(), name='ensemble_list'),
     url(r'^perambulator/$', views.PerambulatorList.as_view(), name='perambulator_list'),
-
-    #url(r'^dilution/create$', views.dilution_schemes_create, name='dilution_schemes_create'),
-    #url(r'^ensembles/create$', views.ensembles_create, name='ensembles_create'),
-    url(r'^perambulator/create$', views.perambulators_create, name='perambulator_create'),
 
     url(r'^$', views.index, name='index'),
 ]

@@ -25,7 +25,7 @@
             <td>{{ perambulator.mass_light }}</td>
             <td>{{ perambulator.mass_strange }}</td>
             <td>{{ perambulator.mass_charm }}</td>
-            <td>{{ perambulator.seed }}</td>
+            <td>{{ perambulator.random_seed }}</td>
             {% if show_ensemble %}
             <td>
                 {{ perambulator.ensemble }}
@@ -42,7 +42,7 @@
             <td>
                 <div class="btn-group">
                     <a href="{% url 'perambulator_view' perambulator.id %}" class="btn btn-default btn-sm">View</a>
-                    <a href="" class="btn btn-default btn-sm">Edit</a>
+                    <a href="{% url 'perambulator_edit' perambulator.id %}" class="btn btn-default btn-sm">Edit</a>
                     <button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#delete-perambulator--{{ perambulator.id }}"  aria-expanded="false" aria-controls="collapseExample">Delete …</button>
                     <a href="" id="delete--perambulator-{{ perambulator.id }}" class="btn btn-danger btn-sm collapse">Yes, delete!</a>
                 </div>
