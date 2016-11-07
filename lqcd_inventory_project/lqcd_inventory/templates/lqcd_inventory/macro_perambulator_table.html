@@ -35,7 +35,7 @@
             {% if show_dilution %}
             <td>
                 {{ perambulator.dilution_scheme }}
-                <a class="btn btn-xs btn-info" href="{% url 'dilution_scheme_view' perambulator.dilution_scheme.id %}">View</a>
+                <a class="btn btn-xs btn-info" href="{% url 'dilution_view' perambulator.dilution_scheme.id %}">View</a>
             </td>
             {% endif %}
             {% if show_actions %}
