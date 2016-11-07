@@ -9,6 +9,6 @@ virtualenv=virtualenv
 PS1=
 source "$virtualenv/bin/activate"
 
-cd lqcd_inventory
+cd lqcd_inventory_project
 
 python3 manage.py "$@"
