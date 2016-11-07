@@ -12,7 +12,7 @@ class Ensemble(models.Model):
     mu_l = models.FloatField()
 
     def __str__(self):
-        return 'mu_l={}'.format(self.mu_l)
+        return r'\( \mu_l={} \)'.format(self.mu_l)
 
     def __repr__(self):
         return 'Ensemble({})'.format(repr(self.mu_l))
