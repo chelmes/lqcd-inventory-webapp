@@ -23,4 +23,4 @@ dilution_scheme_id : id
 random_seed : int
 mass_light : float
 mass_strange : float
-mass_charme : float
+mass_charm : float
