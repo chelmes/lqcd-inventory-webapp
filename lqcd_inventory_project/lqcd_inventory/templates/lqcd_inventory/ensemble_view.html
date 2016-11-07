@@ -1,0 +1,27 @@
+{% extends "lqcd_inventory/layout.html" %} 
+
+{% block body %}
+<div class="row">
+    <div class="col-md-12">
+        <h1>Ensemble View</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>ID</dt>
+            <dd>{{ object.id }}</dd>
+            <dt>\( \mu_\mathrm l \)</dt>
+            <dd>{{ object.mass_light }}</dd>
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <p><a href="" class="btn btn-default btn-sm">Edit</a></p>
+        <div class="btn-group">
+            <button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#delete-{{ object.id }}"  aria-expanded="false" aria-controls="collapseExample">Delete …</button>
+            <a href="" id="delete-{{ object.id }}" class="btn btn-danger btn-sm collapse">Yes, delete!</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

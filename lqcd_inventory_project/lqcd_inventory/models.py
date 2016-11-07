@@ -9,13 +9,13 @@ class DilutionScheme(models.Model):
 
 
 class Ensemble(models.Model):
-    mu_l = models.FloatField()
+    mass_light = models.FloatField()
 
     def __str__(self):
-        return r'\( \mu_l={} \)'.format(self.mu_l)
+        return r'\( \mu_l={} \)'.format(self.mass_light)
 
     def __repr__(self):
-        return 'Ensemble({})'.format(repr(self.mu_l))
+        return 'Ensemble({})'.format(repr(self.mass_light))
 
 
 class Eigensystem(models.Model):
@@ -34,7 +34,7 @@ class Perambulator(models.Model):
     mass_charm = models.FloatField()
 
     ensemble = models.ForeignKey(Ensemble, on_delete=models.CASCADE)
-    dilution_scheme = models.ForeignKey(DilutionScheme, on_delete=models.CASCADE)
+    dilution_scheme = models.ForeignKey(DilutionScheme, on_delete=models.CASCADE, related_name='perambulators')
 
     def __str__(self):
         return 'mu_l={}, mu_s={}, mu_c={}'.format(self.mass_light, self.mass_strange, self.mass_charm)

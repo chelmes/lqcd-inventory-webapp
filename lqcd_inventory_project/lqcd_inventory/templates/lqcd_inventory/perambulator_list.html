@@ -1,0 +1,15 @@
+{% extends "lqcd_inventory/layout.html" %} 
+
+{% block body %}
+<div class="row">
+    <div class="col-md-12">
+        <h1>Perambulator Index</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include 'lqcd_inventory/macro_perambulator_table.html' with object_list=object.perambulators.all show_ensemble=True show_dilution=True show_actions=True only %}
+    </div>
+</div>
+{% endblock %}

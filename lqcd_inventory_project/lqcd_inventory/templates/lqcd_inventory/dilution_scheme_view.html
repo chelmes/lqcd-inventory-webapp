@@ -3,7 +3,7 @@
 {% block body %}
 <div class="row">
     <div class="col-md-12">
-        <h1>Dilution Scheme View</h1>
+        <h1>Dilution Scheme</h1>
     </div>
 </div>
 
@@ -22,6 +22,18 @@
             <button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#delete-{{ object.id }}"  aria-expanded="false" aria-controls="collapseExample">Delete …</button>
             <a href="" id="delete-{{ object.id }}" class="btn btn-danger btn-sm collapse">Yes, delete!</a>
         </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Used by Perambulators</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include 'lqcd_inventory/macro_perambulator_table.html' with object_list=object.perambulators.all show_ensemble=True show_dilution=False show_actions=True only %}
     </div>
 </div>
 {% endblock %}

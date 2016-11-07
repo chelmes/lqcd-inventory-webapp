@@ -1,0 +1,54 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>\( \mu_\mathrm l \)</th>
+            <th>\( \mu_\mathrm s \)</th>
+            <th>\( \mu_\mathrm c \)</th>
+            <th>Seed</th>
+
+            {% if show_ensemble %}
+            <th>Ensemble</th>
+            {% endif %}
+            {% if show_dilution %}
+            <th>Dilution</th>
+            {% endif %}
+            {% if show_actions %}
+            <th>Actions</th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+    {% for perambulator in object_list %}
+        <tr>
+            <td>{{ perambulator.id }}</td>
+            <td>{{ perambulator.mass_light }}</td>
+            <td>{{ perambulator.mass_strange }}</td>
+            <td>{{ perambulator.mass_charm }}</td>
+            <td>{{ perambulator.seed }}</td>
+            {% if show_ensemble %}
+            <td>
+                {{ perambulator.ensemble }}
+                <a class="btn btn-xs btn-info" href="{% url 'ensemble_view' perambulator.ensemble.id %}">View</a>
+            </td>
+            {% endif %}
+            {% if show_dilution %}
+            <td>
+                {{ perambulator.dilution_scheme }}
+                <a class="btn btn-xs btn-info" href="{% url 'dilution_scheme_view' perambulator.dilution_scheme.id %}">View</a>
+            </td>
+            {% endif %}
+            {% if show_actions %}
+            <td>
+                <div class="btn-group">
+                    <a href="{% url 'perambulator_view' perambulator.id %}" class="btn btn-default btn-sm">View</a>
+                    <a href="" class="btn btn-default btn-sm">Edit</a>
+                    <button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#delete-{{ perambulator.id }}"  aria-expanded="false" aria-controls="collapseExample">Delete …</button>
+                    <a href="" id="delete-{{ perambulator.id }}" class="btn btn-danger btn-sm collapse">Yes, delete!</a>
+                </div>
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
