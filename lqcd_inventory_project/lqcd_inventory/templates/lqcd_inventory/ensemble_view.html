@@ -19,20 +19,24 @@
     <div class="col-md-6">
         <p><a href="" class="btn btn-default btn-sm">Edit</a></p>
         <div class="btn-group">
-            <button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#delete-{{ object.id }}"  aria-expanded="false" aria-controls="collapseExample">Delete …</button>
-            <a href="" id="delete-{{ object.id }}" class="btn btn-danger btn-sm collapse">Yes, delete!</a>
+            <button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#delete-ensemble-{{ object.id }}"  aria-expanded="false" aria-controls="collapseExample">Delete …</button>
+            <a href="" id="delete-ensemble-{{ object.id }}" class="btn btn-danger btn-sm collapse">Yes, delete!</a>
         </div>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <h2>Used by Perambulators</h2>
-    </div>
-</div>
+<hr/>
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-lg-6">
+        <h2>Used by Eigensystems</h2>
+
+        {% include 'lqcd_inventory/macro_eigensystem_table.html' with object_list=object.eigensystems.all show_ensemble=False show_actions=True only %}
+    </div>
+
+    <div class="col-lg-6">
+        <h2>Used by Perambulators</h2>
+
         {% include 'lqcd_inventory/macro_perambulator_table.html' with object_list=object.perambulators.all show_ensemble=False show_dilution=True show_actions=True only %}
     </div>
 </div>

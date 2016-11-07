@@ -43,8 +43,8 @@
                 <div class="btn-group">
                     <a href="{% url 'perambulator_view' perambulator.id %}" class="btn btn-default btn-sm">View</a>
                     <a href="" class="btn btn-default btn-sm">Edit</a>
-                    <button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#delete-{{ perambulator.id }}"  aria-expanded="false" aria-controls="collapseExample">Delete …</button>
-                    <a href="" id="delete-{{ perambulator.id }}" class="btn btn-danger btn-sm collapse">Yes, delete!</a>
+                    <button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#delete-perambulator--{{ perambulator.id }}"  aria-expanded="false" aria-controls="collapseExample">Delete …</button>
+                    <a href="" id="delete--perambulator-{{ perambulator.id }}" class="btn btn-danger btn-sm collapse">Yes, delete!</a>
                 </div>
             </td>
             {% endif %}

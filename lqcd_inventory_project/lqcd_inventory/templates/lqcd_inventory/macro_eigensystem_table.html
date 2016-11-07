@@ -2,7 +2,10 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Path</th>
+            {% if show_ensemble %}
+            <th>Ensemble</th>
+            {% endif %}
             {% if show_actions %}
             <th>Actions</th>
             {% endif %}
@@ -12,11 +15,17 @@
     {% for object in object_list %}
         <tr>
             <td>{{ object.id }}</td>
-            <td>{{ object.name }}</td>
+            <td><tt>{{ object.path }}</tt></td>
+            {% if show_ensemble %}
+            <td>
+                {{ object.ensemble }}
+                <a class="btn btn-xs btn-info" href="{% url 'ensemble_view' object.ensemble.id %}">View</a>
+            </td>
+            {% endif %}
             {% if show_actions %}
             <td>
                 <div class="btn-group">
-                    <a href="{% url 'dilution_view' object.id %}" class="btn btn-default btn-sm">View</a>
+                    <a href="{% url 'eigensystem_view' object.id %}" class="btn btn-default btn-sm">View</a>
                     <a href="" class="btn btn-default btn-sm">Edit</a>
                     <button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#delete-dilution-{{ object.id }}"  aria-expanded="false" aria-controls="collapseExample">Delete …</button>
                     <a href="" id="delete-dilution-{{ object.id }}" class="btn btn-danger btn-sm collapse">Yes, delete!</a>

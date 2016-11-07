@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
 
     url(r'^dilution/(?P<pk>\d+)/view$', views.DilutionView.as_view(), name='dilution_view'),
+    url(r'^eigensystem/(?P<pk>\d+)/view$', views.EigensystemView.as_view(), name='eigensystem_view'),
     url(r'^ensemble/(?P<pk>\d+)/view$', views.EnsembleView.as_view(), name='ensemble_view'),
     url(r'^perambulator/(?P<pk>\d+)/view$', views.PerambulatorView.as_view(), name='perambulator_view'),
 

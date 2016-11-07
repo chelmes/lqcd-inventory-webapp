@@ -21,7 +21,7 @@ class Ensemble(models.Model):
 class Eigensystem(models.Model):
     path = models.CharField(max_length=1000)
 
-    ensemble = models.ForeignKey(Ensemble, on_delete=models.CASCADE, related_name='eigensystem')
+    ensemble = models.ForeignKey(Ensemble, on_delete=models.CASCADE, related_name='eigensystems')
 
     def __str__(self):
         return '{} @ {}'.format(self.path, str(self.ensemble))
