@@ -1,0 +1,40 @@
+{% extends "lqcd_inventory/layout.html" %} 
+
+{% block body %}
+<div class="row">
+    <div class="col-md-12">
+        <h1>Perambulator View</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>ID</dt>
+            <dd>{{ object.id }}</dd>
+            <dt>\( \mu_\mathrm l \)</dt>
+            <dd>{{ object.mass_light }}</dd>
+            <dt>\( \mu_\mathrm s \)</dt>
+            <dd>{{ object.mass_strange }}</dd>
+            <dt>\( \mu_\mathrm c \)</dt>
+            <dd>{{ object.mass_charm }}</dd>
+            <dt>Seed</dt>
+            <dd>{{ object.seed }}</dd>
+            <dt>Ensemble</dt>
+            <dd>{{ object.ensemble }}</dd>
+            <dt>Dilution</dt>
+            <dd>
+            {{ object.dilution_scheme }}
+            <a class="btn btn-xs btn-info" href="{% url 'dilution_schemes_view' object.dilution_scheme.id %}">View</a>
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <p><a href="" class="btn btn-default btn-sm">Edit</a></p>
+        <div class="btn-group">
+            <button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#delete-{{ object.id }}"  aria-expanded="false" aria-controls="collapseExample">Delete …</button>
+            <a href="" id="delete-{{ object.id }}" class="btn btn-danger btn-sm collapse">Yes, delete!</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
