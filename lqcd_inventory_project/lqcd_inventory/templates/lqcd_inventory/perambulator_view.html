@@ -30,11 +30,7 @@
         </dl>
     </div>
     <div class="col-md-6">
-        <p><a href="{% url 'perambulator_edit' perambulator.id %}" class="btn btn-default btn-sm">Edit</a></p>
-        <div class="btn-group">
-            <button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#delete-{{ object.id }}"  aria-expanded="false" aria-controls="collapseExample">Delete …</button>
-            <a href="" id="delete-{{ object.id }}" class="btn btn-danger btn-sm collapse">Yes, delete!</a>
-        </div>
+        {% include 'lqcd_inventory/macro_actions.html' with object=object name='perambulator' show_view=False only %}
     </div>
 </div>
 {% endblock %}

@@ -15,12 +15,7 @@
             <td>{{ object.name }}</td>
             {% if show_actions %}
             <td>
-                <div class="btn-group">
-                    <a href="{% url 'dilution_view' object.id %}" class="btn btn-default btn-sm">View</a>
-                    <a href="" class="btn btn-default btn-sm">Edit</a>
-                    <button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#delete-dilution-{{ object.id }}"  aria-expanded="false" aria-controls="collapseExample">Delete …</button>
-                    <a href="" id="delete-dilution-{{ object.id }}" class="btn btn-danger btn-sm collapse">Yes, delete!</a>
-                </div>
+                {% include 'lqcd_inventory/macro_actions.html' with object=object name='dilution' show_view=True only %}
             </td>
             {% endif %}
         </tr>

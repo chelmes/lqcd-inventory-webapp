@@ -110,3 +110,13 @@ dilution_edit = edit_generator(models.DilutionScheme, DilutionForm, 'dilution')
 eigensystem_edit = edit_generator(models.Eigensystem, EigensystemForm, 'eigensystem')
 ensemble_edit = edit_generator(models.Ensemble, EnsembleForm, 'ensemble')
 perambulator_edit = edit_generator(models.Perambulator, PerambulatorForm, 'perambulator')
+
+def delete_generator(Model, name):
+    def delete(request, pk):
+        pass
+    return delete
+
+dilution_delete = delete_generator(models.DilutionScheme, 'dilution')
+eigensystem_delete = delete_generator(models.Eigensystem, 'eigensystem')
+ensemble_delete = delete_generator(models.Ensemble, 'ensemble')
+perambulator_delete = delete_generator(models.Perambulator, 'perambulator')

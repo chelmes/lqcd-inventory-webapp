@@ -19,33 +19,28 @@
         </tr>
     </thead>
     <tbody>
-    {% for perambulator in object_list %}
+    {% for object in object_list %}
         <tr>
-            <td>{{ perambulator.id }}</td>
-            <td>{{ perambulator.mass_light }}</td>
-            <td>{{ perambulator.mass_strange }}</td>
-            <td>{{ perambulator.mass_charm }}</td>
-            <td>{{ perambulator.random_seed }}</td>
+            <td>{{ object.id }}</td>
+            <td>{{ object.mass_light }}</td>
+            <td>{{ object.mass_strange }}</td>
+            <td>{{ object.mass_charm }}</td>
+            <td>{{ object.random_seed }}</td>
             {% if show_ensemble %}
             <td>
-                {{ perambulator.ensemble }}
-                <a class="btn btn-xs btn-info" href="{% url 'ensemble_view' perambulator.ensemble.id %}">View</a>
+                {{ object.ensemble }}
+                <a class="btn btn-xs btn-info" href="{% url 'ensemble_view' object.ensemble.id %}">View</a>
             </td>
             {% endif %}
             {% if show_dilution %}
             <td>
-                {{ perambulator.dilution_scheme }}
-                <a class="btn btn-xs btn-info" href="{% url 'dilution_view' perambulator.dilution_scheme.id %}">View</a>
+                {{ object.dilution_scheme }}
+                <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_scheme.id %}">View</a>
             </td>
             {% endif %}
             {% if show_actions %}
             <td>
-                <div class="btn-group">
-                    <a href="{% url 'perambulator_view' perambulator.id %}" class="btn btn-default btn-sm">View</a>
-                    <a href="{% url 'perambulator_edit' perambulator.id %}" class="btn btn-default btn-sm">Edit</a>
-                    <button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#delete-perambulator--{{ perambulator.id }}"  aria-expanded="false" aria-controls="collapseExample">Delete …</button>
-                    <a href="" id="delete--perambulator-{{ perambulator.id }}" class="btn btn-danger btn-sm collapse">Yes, delete!</a>
-                </div>
+                {% include 'lqcd_inventory/macro_actions.html' with object=object name='perambulator' show_view=True only %}
             </td>
             {% endif %}
         </tr>

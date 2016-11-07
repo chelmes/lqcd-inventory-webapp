@@ -14,6 +14,11 @@ urlpatterns = [
     url(r'^ensemble/(?P<pk>\d+)/edit$', views.ensemble_edit, name='ensemble_edit'),
     url(r'^perambulator/(?P<pk>\d+)/edit$', views.perambulator_edit, name='perambulator_edit'),
 
+    url(r'^dilution/(?P<pk>\d+)/delete$', views.dilution_delete, name='dilution_delete'),
+    url(r'^eigensystem/(?P<pk>\d+)/delete$', views.eigensystem_delete, name='eigensystem_delete'),
+    url(r'^ensemble/(?P<pk>\d+)/delete$', views.ensemble_delete, name='ensemble_delete'),
+    url(r'^perambulator/(?P<pk>\d+)/delete$', views.perambulator_delete, name='perambulator_delete'),
+
     url(r'^dilution/create$', views.dilution_edit, name='dilution_create'),
     url(r'^eigensystem/create$', views.eigensystem_edit, name='eigensystem_create'),
     url(r'^ensemble/create$', views.ensemble_edit, name='ensemble_create'),

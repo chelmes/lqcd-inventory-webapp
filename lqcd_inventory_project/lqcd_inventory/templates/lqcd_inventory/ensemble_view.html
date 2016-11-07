@@ -17,11 +17,7 @@
         </dl>
     </div>
     <div class="col-md-6">
-        <p><a href="" class="btn btn-default btn-sm">Edit</a></p>
-        <div class="btn-group">
-            <button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#delete-ensemble-{{ object.id }}"  aria-expanded="false" aria-controls="collapseExample">Delete …</button>
-            <a href="" id="delete-ensemble-{{ object.id }}" class="btn btn-danger btn-sm collapse">Yes, delete!</a>
-        </div>
+        {% include 'lqcd_inventory/macro_actions.html' with object=object name='ensemble' show_view=False only %}
     </div>
 </div>
 

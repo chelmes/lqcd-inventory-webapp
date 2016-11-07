@@ -1,0 +1,8 @@
+<div class="btn-group">
+    {% if show_view %}
+    <a href="{% url name|add:'_view' object.id %}" class="btn btn-default btn-sm">View</a>
+    {% endif %}
+    <a href="{% url name|add:'_edit' object.id %}" class="btn btn-default btn-sm">Edit</a>
+    <button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#delete-{{ name }}-{{ object.id }}"  aria-expanded="false" aria-controls="collapseExample">Delete …</button>
+    <a href="{% url name|add:'_delete' object.id %}" id="delete-{{ name }}-{{ object.id }}" class="btn btn-danger btn-sm collapse">Yes, delete!</a>
+</div>
