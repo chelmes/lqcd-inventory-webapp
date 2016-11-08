@@ -30,6 +30,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'lqcd-inventory.herokuapp.com',
     'lqcd-inventory.martin-ueding.de',
+    '127.0.0.1',
 ]
 
 
