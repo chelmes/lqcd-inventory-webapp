@@ -1,0 +1,38 @@
+{% extends "lqcd_inventory/layout.html" %} 
+
+{% block body %}
+<div class="row">
+    <div class="col-md-12">
+        <h1>Storage</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>Name</dt>
+            <dd>{{ object.name }}</dd>
+            <dt>Account</dt>
+            <dd>{{ object.account }}</dd>
+            <dt>Path</dt>
+            <dd><tt>{{ object.path }}</tt></dd>
+        </dl>
+    </div>
+    <div class="col-md-6">
+        {% include 'lqcd_inventory/macro_actions.html' with object=object name='storage' show_view=False only %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Used by Perambulators</h2>
+        {% include 'lqcd_inventory/macro_perambulator_table.html' with object_list=object.perambulator.all show_ensemble=True show_dilution=True show_actions=True only %}
+    </div>
+        
+    <div class="col-lg-12">
+        <h2>Used by Eigensystems</h2>
+        {% include 'lqcd_inventory/macro_eigensystem_table.html' with object_list=object.eigensystem.all show_ensemble=True show_dilution=True show_actions=True only %}
+    </div>
+</div>
+
+{% endblock %}

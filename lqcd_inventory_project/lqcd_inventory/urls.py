@@ -36,7 +36,7 @@ urlpatterns = [
     url(r'^eigensystem/$', views.EigensystemList.as_view(), name='eigensystem_list'),
     url(r'^ensemble/$', views.EnsembleList.as_view(), name='ensemble_list'),
     url(r'^perambulator/$', views.PerambulatorList.as_view(), name='perambulator_list'),
-    url(r'^perambulator_seed/$', views.PerambulatorList.as_view(), name='perambulator_seed_list'),
+    url(r'^perambulator_seed/$', views.PerambulatorSeedList.as_view(), name='perambulator_seed_list'),
     url(r'^storage/$', views.StorageList.as_view(), name='storage_list'),
 
     url(r'^$', views.index, name='index'),

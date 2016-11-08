@@ -10,22 +10,87 @@
 <div class="row">
     <div class="col-md-6">
         <dl class="dl-horizontal">
-            <dt>ID</dt>
-            <dd>{{ object.id }}</dd>
-            <dt>\( \mu_\mathrm l \)</dt>
-            <dd>{{ object.mass_light }}</dd>
-            <dt>\( \mu_\mathrm s \)</dt>
-            <dd>{{ object.mass_strange }}</dd>
-            <dt>\( \mu_\mathrm c \)</dt>
-            <dd>{{ object.mass_charm }}</dd>
-            <dt>Seed</dt>
-            <dd>{{ object.random_seed }}</dd>
-            <dt>Ensemble</dt>
-            <dd>{{ object.ensemble }}</dd>
+            <dt>Quark type</dt>
+            <dd>{{ object.quark_type }}</dd>
+            <dt>\( \mu \)</dt>
+            <dd>{{ object.mass }}</dd>
+            <dt>Seeds</dt>
+            <dd>
+            <ul>
+                {% for seed in object.perambulator_seed.all %}
+                <li>
+                    {{ seed.seed_id }}: {{ seed.seed }}
+                    <a class="btn btn-xs btn-info" href="{% url 'perambulator_seed_view' seed.id %}">View</a>
+                </li>
+                {% endfor %}
+            </ul>
+            </dd>
+            <dt>Eigensystem</dt>
+            <dd>
+            {{ object.eigensystem }}
+            <a class="btn btn-xs btn-info" href="{% url 'eigensystem_view' object.eigensystem.id %}">View</a>
+            </dd>
             <dt>Dilution</dt>
             <dd>
-            {{ object.dilution_scheme }}
-            <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_scheme.id %}">View</a>
+            <table class="table">
+                <tr>
+                    <td>Source Time</td>
+                    <td>
+                        {{ object.dilution_source_time }}
+                        <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_source_time.id %}">View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Source Space</td>
+                    <td>
+                        {{ object.dilution_source_space }}
+                        <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_source_time.id %}">View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Source LapH</td>
+                    <td>
+                        {{ object.dilution_source_laph }}
+                        <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_source_time.id %}">View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Source Dirac</td>
+                    <td>
+                        {{ object.dilution_source_dirac }}
+                        <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_source_time.id %}">View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sink Time</td>
+                    <td>
+                        {{ object.dilution_sink_time }}
+                        <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_sink_time.id %}">View</a>
+                    </td>
+                </tr>
+                <tr>
+                    </td>
+                    <td>Sink Space</td>
+                    <td>
+                        {{ object.dilution_sink_space }}
+                        <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_sink_time.id %}">View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sink LapH</td>
+                    <td>
+                        {{ object.dilution_sink_laph }}
+                        <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_sink_time.id %}">View</a>
+                </tr>
+                </tr>
+                <tr>
+                    <td>Sink Dirac</td>
+                    <td>
+                        {{ object.dilution_sink_dirac }}
+                        <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_sink_time.id %}">View</a>
+                    </td>
+                </tr>
+            </table>
             </dd>
         </dl>
     </div>

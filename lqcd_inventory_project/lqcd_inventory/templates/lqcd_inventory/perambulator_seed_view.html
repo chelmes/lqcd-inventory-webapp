@@ -1,0 +1,28 @@
+{% extends "lqcd_inventory/layout.html" %} 
+
+{% block body %}
+<div class="row">
+    <div class="col-md-12">
+        <h1>Perambulator Seed View</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>ID</dt>
+            <dd>{{ object.seed_id }}</dd>
+            <dt>Seed</dt>
+            <dd>{{ object.seed }}</dd>
+            <dt>Perambulator</dt>
+            <dd>
+            {{ object.perambulator }}
+            <a class="btn btn-xs btn-info" href="{% url 'perambulator_view' object.perambulator.id %}">View</a>
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-6">
+        {% include 'lqcd_inventory/macro_actions.html' with object=object name='perambulator' show_view=False only %}
+    </div>
+</div>
+{% endblock %}

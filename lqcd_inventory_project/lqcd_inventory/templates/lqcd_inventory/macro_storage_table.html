@@ -2,7 +2,8 @@
     <thead>
         <tr>
             <th>Name</th>
-
+            <th>Account</th>
+            <th>Path</th>
             {% if show_actions %}
             <th>Actions</th>
             {% endif %}
@@ -12,13 +13,14 @@
     {% for object in object_list %}
         <tr>
             <td>{{ object.name }}</td>
+            <td>{{ object.account }}</td>
+            <td><tt>{{ object.path }}</tt></td>
             {% if show_actions %}
             <td>
-                {% include 'lqcd_inventory/macro_actions.html' with object=object name='ensemble' show_view=True only %}
+                {% include 'lqcd_inventory/macro_actions.html' with object=object name='storage' show_view=True only %}
             </td>
             {% endif %}
         </tr>
         {% endfor %}
     </tbody>
 </table>
-

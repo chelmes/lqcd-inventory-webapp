@@ -78,11 +78,13 @@ class PerambulatorForm(ModelForm):
     class Meta:
         model = models.Perambulator
         fields = [
-            'ensemble',
+            'quark_type',
+            'mass',
+            'eigensystem',
             'storage',
-            'mass_light',
-            'mass_strange',
-            'mass_charm',
+            'config_start',
+            'config_end',
+            'config_step',
             'dilution_source_time',
             'dilution_source_space',
             'dilution_source_laph',

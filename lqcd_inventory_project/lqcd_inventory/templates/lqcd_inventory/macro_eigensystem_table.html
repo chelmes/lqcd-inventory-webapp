@@ -1,7 +1,6 @@
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
             <th>Path</th>
             <th>HYP 1</th>
             <th>HYP 2</th>
@@ -11,12 +10,8 @@
             <th>ev ts \( \lambda_\mathrm L \)</th>
             <th>Configs</th>
             <th>Config Count</th>
-            {% if show_ensemble %}
             <th>Ensemble</th>
-            {% endif %}
-            {% if show_storage %}
             <th>Storage</th>
-            {% endif %}
             <th>Comment</th>
             {% if show_actions %}
             <th>Actions</th>
@@ -26,7 +21,6 @@
     <tbody>
     {% for object in object_list %}
         <tr>
-            <td>{{ object.id }}</td>
             <td><tt>{{ object.path }}</tt></td>
             <td>{{ object.hyp_strength1 }}</td>
             <td>{{ object.hyp_strength2 }}</td>
@@ -36,18 +30,14 @@
             <td>{{ object.ev_ts_lambda_l }}</td>
             <td>{{ object.config_start }}..{{ object.config_end }}..{{ object.config_step }}</td>
             <td>{{ object.config_count }}</td>
-            {% if show_ensemble %}
             <td>
                 {{ object.ensemble }}
                 <a class="btn btn-xs btn-info" href="{% url 'ensemble_view' object.ensemble.id %}">View</a>
             </td>
-            {% endif %}
-            {% if show_storage %}
             <td>
                 {{ object.storage }}
                 <a class="btn btn-xs btn-info" href="{% url 'storage_view' object.storage.id %}">View</a>
             </td>
-            {% endif %}
             <td>{{ object.comment }}</td>
             {% if show_actions %}
             <td>

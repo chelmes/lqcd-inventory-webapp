@@ -10,10 +10,8 @@
 <div class="row">
     <div class="col-md-6">
         <dl class="dl-horizontal">
-            <dt>ID</dt>
-            <dd>{{ object.id }}</dd>
-            <dt>\( \mu_\mathrm l \)</dt>
-            <dd>{{ object.mass_light }}</dd>
+            <dt>Name</dt>
+            <dd>{{ object.name }}</dd>
         </dl>
     </div>
     <div class="col-md-6">
@@ -28,12 +26,6 @@
         <h2>Used by Eigensystems</h2>
 
         {% include 'lqcd_inventory/macro_eigensystem_table.html' with object_list=object.eigensystems.all show_ensemble=False show_actions=True only %}
-    </div>
-
-    <div class="col-lg-6">
-        <h2>Used by Perambulators</h2>
-
-        {% include 'lqcd_inventory/macro_perambulator_table.html' with object_list=object.perambulators.all show_ensemble=False show_dilution=True show_actions=True only %}
     </div>
 </div>
 {% endblock %}

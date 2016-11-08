@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Seed</th>
+            <th>Perambulator</th>
+            {% if show_actions %}
+            <th>Actions</th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+    {% for object in object_list %}
+        <tr>
+            <td>{{ object.seed_id }}</td>
+            <td>{{ object.seed }}</td>
+            <td>
+                {{ object.perambulator }}
+                <a class="btn btn-xs btn-info" href="{% url 'perambulator_view' object.perambulator.id %}">View</a>
+            </td>
+            {% if show_actions %}
+            <td>
+                {% include 'lqcd_inventory/macro_actions.html' with object=object name='perambulator' show_view=True only %}
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

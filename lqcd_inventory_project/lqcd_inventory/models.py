@@ -63,9 +63,8 @@ class Eigensystem(models.Model):
 
 
 class Perambulator(models.Model):
-    mass_light = models.FloatField()
-    mass_strange = models.FloatField()
-    mass_charm = models.FloatField()
+    mass = models.FloatField()
+    quark_type = models.CharField(max_length=5)
 
     dilution_source_time = models.ForeignKey(Dilution, on_delete=models.CASCADE, related_name='perambulator_source_time')
     dilution_source_space = models.ForeignKey(Dilution, on_delete=models.CASCADE, related_name='perambulator_source_space')
@@ -77,14 +76,18 @@ class Perambulator(models.Model):
     dilution_sink_laph = models.ForeignKey(Dilution, on_delete=models.CASCADE, related_name='perambulator_sink_laph')
     dilution_sink_dirac = models.ForeignKey(Dilution, on_delete=models.CASCADE, related_name='perambulator_sink_dirac')
 
-    ensemble = models.ForeignKey(Ensemble, on_delete=models.CASCADE, related_name='perambulators')
+    eigensystem = models.ForeignKey(Eigensystem, on_delete=models.CASCADE, related_name='perambulators')
 
     storage = models.ForeignKey(Storage, on_delete=models.CASCADE, related_name='perambulator')
+
+    config_start = models.IntegerField()
+    config_end = models.IntegerField()
+    config_step = models.IntegerField()
 
     comment = models.CharField(max_length=2000, blank=True, null=True)
 
     def __str__(self):
-        return 'mu_l={}, mu_s={}, mu_c={}'.format(self.mass_light, self.mass_strange, self.mass_charm)
+        return '{} {}; {}'.format(self.quark_type, self.mass, self.eigensystem)
 
 
 class PerambulatorSeed(models.Model):
