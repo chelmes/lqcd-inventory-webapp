@@ -91,3 +91,6 @@ class PerambulatorSeed(models.Model):
     seed_id = models.IntegerField()
     seed = models.IntegerField()
     perambulator = models.ForeignKey(Perambulator, on_delete=models.CASCADE, related_name='perambulator_seed')
+
+    def __str__(self):
+        return '{}'.format(self.seed)

@@ -5,13 +5,20 @@
             <th>\( \mu_\mathrm l \)</th>
             <th>\( \mu_\mathrm s \)</th>
             <th>\( \mu_\mathrm c \)</th>
-            <th>Seed</th>
+            <th>Seeds</th>
 
             {% if show_ensemble %}
             <th>Ensemble</th>
             {% endif %}
             {% if show_dilution %}
-            <th>Dilution</th>
+            <th>So. Time</th>
+            <th>So. Space</th>
+            <th>So. LapH</th>
+            <th>So. Dirac</th>
+            <th>Si. Time</th>
+            <th>Si. Space</th>
+            <th>Si. LapH</th>
+            <th>Si. Dirac</th>
             {% endif %}
             {% if show_storage %}
             <th>Storage</th>
@@ -29,6 +36,7 @@
             <td>{{ object.mass_light }}</td>
             <td>{{ object.mass_strange }}</td>
             <td>{{ object.mass_charm }}</td>
+            <td>{{ object.perambulator_seed.all|join:', ' }}</td>
             {% if show_ensemble %}
             <td>
                 {{ object.ensemble }}
@@ -37,8 +45,36 @@
             {% endif %}
             {% if show_dilution %}
             <td>
-                {{ object.dilution_scheme }}
-                <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_scheme.id %}">View</a>
+                {{ object.dilution_source_time }}
+                <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_source_time.id %}">View</a>
+            </td>
+            <td>
+                {{ object.dilution_source_space }}
+                <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_source_time.id %}">View</a>
+            </td>
+            <td>
+                {{ object.dilution_source_laph }}
+                <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_source_time.id %}">View</a>
+            </td>
+            <td>
+                {{ object.dilution_source_dirac }}
+                <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_source_time.id %}">View</a>
+            </td>
+            <td>
+                {{ object.dilution_sink_time }}
+                <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_sink_time.id %}">View</a>
+            </td>
+            <td>
+                {{ object.dilution_sink_space }}
+                <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_sink_time.id %}">View</a>
+            </td>
+            <td>
+                {{ object.dilution_sink_laph }}
+                <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_sink_time.id %}">View</a>
+            </td>
+            <td>
+                {{ object.dilution_sink_dirac }}
+                <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_sink_time.id %}">View</a>
             </td>
             {% endif %}
             {% if show_storage %}
