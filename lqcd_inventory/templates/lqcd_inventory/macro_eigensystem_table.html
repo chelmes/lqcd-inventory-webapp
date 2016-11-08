@@ -1,6 +1,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th><tt>str</tt></th>
             <th>Path</th>
             <th>HYP 1</th>
             <th>HYP 2</th>
@@ -21,6 +22,7 @@
     <tbody>
     {% for object in object_list %}
         <tr>
+            <td>{{ object }}</td>
             <td><tt>{{ object.path }}</tt></td>
             <td>{{ object.hyp_strength1 }}</td>
             <td>{{ object.hyp_strength2 }}</td>

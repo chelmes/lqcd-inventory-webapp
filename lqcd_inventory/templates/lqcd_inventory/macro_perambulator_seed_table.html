@@ -1,6 +1,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th><tt>str</tt></th>
             <th>ID</th>
             <th>Seed</th>
             <th>Perambulator</th>
@@ -12,6 +13,7 @@
     <tbody>
     {% for object in object_list %}
         <tr>
+            <td>{{ object }}</td>
             <td>{{ object.seed_id }}</td>
             <td>{{ object.seed }}</td>
             <td>

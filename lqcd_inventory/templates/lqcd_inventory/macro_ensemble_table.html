@@ -1,6 +1,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th><tt>str</tt></th>
             <th>Name</th>
 
             {% if show_actions %}
@@ -11,6 +12,7 @@
     <tbody>
     {% for object in object_list %}
         <tr>
+            <td>{{ object }}</td>
             <td>{{ object.name }}</td>
             {% if show_actions %}
             <td>

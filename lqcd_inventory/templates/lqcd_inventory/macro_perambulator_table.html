@@ -1,10 +1,11 @@
 <table class="table">
     <thead>
         <tr>
+            <th><tt>str</tt></th>
             <th>Quark</th>
             <th>\( \mu \)</th>
             <th>Seeds</th>
-            <th>Ensemble</th>
+            <th>Eigensystem</th>
             <th>So. Time</th>
             <th>So. Space</th>
             <th>So. LapH</th>
@@ -23,12 +24,13 @@
     <tbody>
     {% for object in object_list %}
         <tr>
+            <td>{{ object }}</td>
             <td>{{ object.quark_type }}</td>
             <td>{{ object.mass }}</td>
             <td>{{ object.perambulator_seed.all|join:', ' }}</td>
             <td>
-                {{ object.ensemble }}
-                <a class="btn btn-xs btn-info" href="{% url 'ensemble_view' object.ensemble.id %}">View</a>
+                {{ object.eigensystem }}
+                <a class="btn btn-xs btn-info" href="{% url 'ensemble_view' object.eigensystem.id %}">View</a>
             </td>
             <td>
                 {{ object.dilution_source_time }}

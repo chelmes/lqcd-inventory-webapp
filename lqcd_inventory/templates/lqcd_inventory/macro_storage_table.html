@@ -1,6 +1,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th><tt>str</tt></th>
             <th>Name</th>
             <th>Account</th>
             <th>Path</th>
@@ -12,6 +13,7 @@
     <tbody>
     {% for object in object_list %}
         <tr>
+            <td>{{ object }}</td>
             <td>{{ object.name }}</td>
             <td>{{ object.account }}</td>
             <td><tt>{{ object.path }}</tt></td>
