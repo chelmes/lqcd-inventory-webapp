@@ -9,7 +9,7 @@
 </div>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
         <h2>Purpose</h2>
 
         <p>Here you can find and index the computed perambulators. This website
@@ -17,12 +17,31 @@
         data and delete data which is not available any more.</p>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <h2>Usage</h2>
 
         <p>Click on the menu items above. You need to create dependent entries
         first; so create a <em>storage</em> and an <em>ensemble</em> first,
         then you can create an <em>eigensytem</em> entry.</p>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Implementation</h2>
+
+        <p>This website is built using <a href="https://djangoproject.com/">Django</a>, a
+        <a href="http://python.org/">Python</a> library/framework for creating web applications.
+        It comes with an object relational mapper (ORM) that automagically stores all
+        the Python objects in a relational database.</p>
+
+        <p>Design of the website is done with the <a href="https://getbootstrap.com/">Bootstrap CSS
+            Framework</a>. No CSS had to be written by hand, it is
+        also responsive and mobile friendly for free.</p>
+
+        <p>LaTeX rendering with <code>\( … \)</code> is done using <a href="http://www.mathjax.org/">MathJaX</a>.</p>
+
+        <p>This instance currently runs on a free Dyno on <a href="https://heroku.com/">Heroku</a>.
+        The space in the database is limited, let&rsquo;s see how far we can get.</p>
+
     </div>
 </div>
 {% endblock %}
