@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>\( \mu_\mathrm l \)</th>
+            <th>Name</th>
 
             {% if show_actions %}
             <th>Actions</th>
@@ -13,7 +13,7 @@
     {% for object in object_list %}
         <tr>
             <td>{{ object.id }}</td>
-            <td>{{ object.mass_light }}</td>
+            <td>{{ object.name }}</td>
             {% if show_actions %}
             <td>
                 {% include 'lqcd_inventory/macro_actions.html' with object=object name='ensemble' show_view=True only %}

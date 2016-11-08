@@ -13,7 +13,11 @@
             {% if show_dilution %}
             <th>Dilution</th>
             {% endif %}
+            {% if show_storage %}
+            <th>Storage</th>
+            {% endif %}
             {% if show_actions %}
+            <th>Comment</th>
             <th>Actions</th>
             {% endif %}
         </tr>
@@ -25,7 +29,6 @@
             <td>{{ object.mass_light }}</td>
             <td>{{ object.mass_strange }}</td>
             <td>{{ object.mass_charm }}</td>
-            <td>{{ object.random_seed }}</td>
             {% if show_ensemble %}
             <td>
                 {{ object.ensemble }}
@@ -38,6 +41,13 @@
                 <a class="btn btn-xs btn-info" href="{% url 'dilution_view' object.dilution_scheme.id %}">View</a>
             </td>
             {% endif %}
+            {% if show_storage %}
+            <td>
+                {{ object.storage }}
+                <a class="btn btn-xs btn-info" href="{% url 'storage_view' object.storage.id %}">View</a>
+            </td>
+            {% endif %}
+            <td>{{ object.comment }}</td>
             {% if show_actions %}
             <td>
                 {% include 'lqcd_inventory/macro_actions.html' with object=object name='perambulator' show_view=True only %}

@@ -3,6 +3,8 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Letter</th>
+            <th>Value</th>
             {% if show_actions %}
             <th>Actions</th>
             {% endif %}
@@ -13,6 +15,8 @@
         <tr>
             <td>{{ object.id }}</td>
             <td>{{ object.name }}</td>
+            <td>{{ object.letter }}</td>
+            <td>{{ object.value }}</td>
             {% if show_actions %}
             <td>
                 {% include 'lqcd_inventory/macro_actions.html' with object=object name='dilution' show_view=True only %}

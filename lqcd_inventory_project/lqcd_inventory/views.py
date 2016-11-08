@@ -7,54 +7,25 @@ from django.views import generic
 
 from . import models
 
-
 def index(request):
     return render(request, 'lqcd_inventory/index.html')
 
+###############################################################################
 
-def perambulators_create(request):
-    return render(request, 'lqcd_inventory/404.html')
-
-
-class PerambulatorList(generic.ListView):
-    model = models.Perambulator
-    template_name = 'lqcd_inventory/perambulator_list.html'
-
-
-class PerambulatorView(generic.DetailView):
-    model = models.Perambulator
-    template_name = 'lqcd_inventory/perambulator_view.html'
-
+class DilutionForm(ModelForm):
+    class Meta:
+        model = models.Dilution
+        fields = ['name', 'letter', 'value']
 
 class DilutionList(generic.ListView):
-    model = models.DilutionScheme
+    model = models.Dilution
     template_name = 'lqcd_inventory/dilution_list.html'
 
-
 class DilutionView(generic.DetailView):
-    model = models.DilutionScheme
+    model = models.Dilution
     template_name = 'lqcd_inventory/dilution_view.html'
 
-
-class EnsembleList(generic.ListView):
-    model = models.Ensemble
-    template_name = 'lqcd_inventory/ensemble_list.html'
-
-
-class EnsembleView(generic.DetailView):
-    model = models.Ensemble
-    template_name = 'lqcd_inventory/ensemble_view.html'
-
-
-class EigensystemList(generic.ListView):
-    model = models.Eigensystem
-    template_name = 'lqcd_inventory/eigensystem_list.html'
-
-
-class EigensystemView(generic.DetailView):
-    model = models.Eigensystem
-    template_name = 'lqcd_inventory/eigensystem_view.html'
-
+###############################################################################
 
 class EigensystemForm(ModelForm):
     class Meta:
@@ -75,18 +46,33 @@ class EigensystemForm(ModelForm):
             'comment',
         ]
 
+class EigensystemList(generic.ListView):
+    model = models.Eigensystem
+    template_name = 'lqcd_inventory/eigensystem_list.html'
 
-class DilutionForm(ModelForm):
-    class Meta:
-        model = models.DilutionScheme
-        fields = ['name', 'letter', 'value']
+class EigensystemView(generic.DetailView):
+    model = models.Eigensystem
+    template_name = 'lqcd_inventory/eigensystem_view.html'
 
+###############################################################################
 
 class EnsembleForm(ModelForm):
     class Meta:
         model = models.Ensemble
         fields = ['name']
 
+class EnsembleList(generic.ListView):
+    model = models.Ensemble
+    template_name = 'lqcd_inventory/ensemble_list.html'
+
+class EnsembleView(generic.DetailView):
+    model = models.Ensemble
+    template_name = 'lqcd_inventory/ensemble_view.html'
+
+###############################################################################
+
+def perambulators_create(request):
+    return render(request, 'lqcd_inventory/404.html')
 
 class PerambulatorForm(ModelForm):
     class Meta:
@@ -108,6 +94,45 @@ class PerambulatorForm(ModelForm):
             'comment',
         ]
 
+class PerambulatorList(generic.ListView):
+    model = models.Perambulator
+    template_name = 'lqcd_inventory/perambulator_list.html'
+
+class PerambulatorView(generic.DetailView):
+    model = models.Perambulator
+    template_name = 'lqcd_inventory/perambulator_view.html'
+
+###############################################################################
+
+class PerambulatorSeedForm(ModelForm):
+    class Meta:
+        model = models.PerambulatorSeed
+        fields = ['seed_id', 'seed', 'perambulator']
+
+class PerambulatorSeedList(generic.ListView):
+    model = models.PerambulatorSeed
+    template_name = 'lqcd_inventory/perambulator_seed_list.html'
+
+class PerambulatorSeedView(generic.DetailView):
+    model = models.PerambulatorSeed
+    template_name = 'lqcd_inventory/perambulator_seed_view.html'
+
+###############################################################################
+
+class StorageForm(ModelForm):
+    class Meta:
+        model = models.Storage
+        fields = ['name', 'account', 'path']
+
+class StorageList(generic.ListView):
+    model = models.Storage
+    template_name = 'lqcd_inventory/storage_list.html'
+
+class StorageView(generic.DetailView):
+    model = models.Storage
+    template_name = 'lqcd_inventory/storage_view.html'
+
+###############################################################################
 
 def edit_generator(Model, Form, name):
     def edit(request, pk=None):
@@ -134,18 +159,21 @@ def edit_generator(Model, Form, name):
 
     return edit
 
-
-dilution_edit = edit_generator(models.DilutionScheme, DilutionForm, 'dilution')
+dilution_edit = edit_generator(models.Dilution, DilutionForm, 'dilution')
 eigensystem_edit = edit_generator(models.Eigensystem, EigensystemForm, 'eigensystem')
 ensemble_edit = edit_generator(models.Ensemble, EnsembleForm, 'ensemble')
 perambulator_edit = edit_generator(models.Perambulator, PerambulatorForm, 'perambulator')
+perambulator_seed_edit = edit_generator(models.PerambulatorSeed, PerambulatorSeedForm, 'perambulator_seed')
+storage_edit = edit_generator(models.Storage, StorageForm, 'storage')
 
 def delete_generator(Model, name):
     def delete(request, pk):
         pass
     return delete
 
-dilution_delete = delete_generator(models.DilutionScheme, 'dilution')
+dilution_delete = delete_generator(models.Dilution, 'dilution')
 eigensystem_delete = delete_generator(models.Eigensystem, 'eigensystem')
 ensemble_delete = delete_generator(models.Ensemble, 'ensemble')
 perambulator_delete = delete_generator(models.Perambulator, 'perambulator')
+perambulator_seed_delete = delete_generator(models.PerambulatorSeed, 'perambulator_seed')
+storage_delete = delete_generator(models.Storage, 'storage')
