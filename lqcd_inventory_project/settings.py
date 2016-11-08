@@ -25,7 +25,10 @@ SECRET_KEY = '8qnf-%fe6)hm(*)9ra$w=xri$p2h!g5y=dvaxw4(fftk6mh(px'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'lqcd-inventory.herokuapp.com',
+    'lqcd-inventory.martin-ueding.de',
+]
 
 
 # Application definition
