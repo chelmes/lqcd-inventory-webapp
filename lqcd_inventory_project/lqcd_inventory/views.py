@@ -59,25 +59,54 @@ class EigensystemView(generic.DetailView):
 class EigensystemForm(ModelForm):
     class Meta:
         model = models.Eigensystem
-        fields = ['path', 'ensemble']
+        fields = [
+            'hyp_strength1',
+            'hyp_strength2',
+            'hyp_iterations',
+            'eigenvector_count',
+            'ev_ts_lambda_c',
+            'ev_ts_lambda_l',
+            'config_start',
+            'config_end',
+            'config_step',
+            'path',
+            'storage',
+            'ensemble',
+            'comment',
+        ]
 
 
 class DilutionForm(ModelForm):
     class Meta:
         model = models.DilutionScheme
-        fields = ['name']
+        fields = ['name', 'letter', 'value']
 
 
 class EnsembleForm(ModelForm):
     class Meta:
         model = models.Ensemble
-        fields = ['mass_light']
+        fields = ['name']
 
 
 class PerambulatorForm(ModelForm):
     class Meta:
         model = models.Perambulator
-        fields = ['random_seed', 'mass_light', 'mass_strange', 'mass_charm', 'ensemble', 'dilution_scheme']
+        fields = [
+            'ensemble',
+            'storage',
+            'mass_light',
+            'mass_strange',
+            'mass_charm',
+            'dilution_source_time',
+            'dilution_source_space',
+            'dilution_source_laph',
+            'dilution_source_dirac',
+            'dilution_sink_time',
+            'dilution_sink_space',
+            'dilution_sink_laph',
+            'dilution_sink_dirac',
+            'comment',
+        ]
 
 
 def edit_generator(Model, Form, name):
