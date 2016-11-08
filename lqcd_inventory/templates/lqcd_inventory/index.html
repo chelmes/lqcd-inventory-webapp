@@ -1,3 +1,28 @@
 {% extends "lqcd_inventory/layout.html" %} 
 
-{% block body %}{% endblock %}
+{% block body %}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>LQCD Inventory</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Purpose</h2>
+
+        <p>Here you can find and index the computed perambulators. This website
+        is a frontend for an underlying database. Add new data, edit existing
+        data and delete data which is not available any more.</p>
+    </div>
+
+    <div class="col-md-6">
+        <h2>Usage</h2>
+
+        <p>Click on the menu items above. You need to create dependent entries
+        first; so create a <em>storage</em> and an <em>ensemble</em> first,
+        then you can create an <em>eigensytem</em> entry.</p>
+    </div>
+</div>
+{% endblock %}
